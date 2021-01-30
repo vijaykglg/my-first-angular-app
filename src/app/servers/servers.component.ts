@@ -14,6 +14,7 @@ export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverCreationStatus = 'No Server was created';
   serverName = 'Testservers';
+  username = '';
 
   constructor() {
     //function() {}; Below syntax is similar to this
@@ -26,11 +27,10 @@ export class ServersComponent implements OnInit {
   }
 
   onCreateServer(){
-    this.serverCreationStatus= 'Server got created!';
+    this.serverCreationStatus= 'Server got created! Name is '+this.serverName;
   }
 
   onUpdateServerName(event: Event) {
     this.serverName= (<HTMLInputElement>event.target).value;
   }
-
 }
