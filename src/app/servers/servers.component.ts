@@ -11,12 +11,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./servers.component.css']
 })
 export class ServersComponent implements OnInit {
+  showSecret = false;
   allowNewServer = false;
   serverCreationStatus = 'No Server was created';
   serverName = 'Testservers';
   serverCreated = false;
   servers = ['Testserver','Testserver 2'];
+  secrets = [];
   username = '';
+  log = [];
 
   constructor() {
     //function() {}; Below syntax is similar to this
@@ -36,5 +39,10 @@ export class ServersComponent implements OnInit {
 
   onUpdateServerName(event: Event) {
     this.serverName= (<HTMLInputElement>event.target).value;
+  }
+
+  onToggleDetails() {
+    this.showSecret = !this.showSecret;
+    this.log.push(this.log.length +1);
   }
 }
